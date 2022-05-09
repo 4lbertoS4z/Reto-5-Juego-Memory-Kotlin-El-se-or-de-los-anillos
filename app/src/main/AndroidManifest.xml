@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.juego">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity
+            android:name=".JuegoMedio"
+            android:exported="false" />
+        <activity
+            android:name=".SelectorDificultad"
+            android:exported="false" />
+        <activity
+            android:name=".JuegoDificil"
+            android:exported="false" />
+        <activity
+            android:name=".PantallaDerrota"
+            android:exported="false" />
+        <activity
+            android:name=".PantallaVictoria"
+            android:exported="false" />
+        <activity
+            android:name=".Juego"
+            android:exported="false" />
+        <activity
+            android:name=".MenuPrincipal"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

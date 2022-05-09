@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PantallaDerrota">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/derrota"
+        android:gravity = "center"
+        android:scaleType="centerInside">
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Los Nazgul encontraron a Frodo y le arrebataron el anillo.\n
+    Sauron reinará en la tierra media para siempre.\n
+
+
+    La era del orco ha comenzado."
+            android:textAlignment="center"
+            android:textColor="#C5B73F"
+            android:textStyle="bold"
+            android:padding="20dp"
+            android:fontFamily="@font/firstp"
+            android:layout_marginTop="50dp"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="400dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnReinicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:fontFamily="@font/firstp"
+            android:text="Menu Principal"
+            android:layout_gravity="center"/>
+    </LinearLayout>>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

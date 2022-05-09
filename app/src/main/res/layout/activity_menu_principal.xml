@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/posible2"
+    tools:context=".MenuPrincipal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="80dp"
+            android:fontFamily="@font/firstp"
+            android:padding="15dp"
+            android:text="La comunidad del anillo se ha perdido en el camino a las puertas de Moria.\n
+Ayúdalos a reagruparse antes de que sea demasiado tarde.\n
+Descubre las cartas y encuentra las parejas antes de que los Nazgul encuentren a Frodo y reclamen el anillo para su amo."
+            android:textAlignment="center"
+            android:textColor="#C5B73F"
+            android:textStyle="bold"></TextView>
+        <Button
+            android:id="@+id/btnJugar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iniciar juego"
+            android:layout_gravity="center"
+            android:fontFamily="@font/firstp"
+            android:layout_marginTop="-200dp"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

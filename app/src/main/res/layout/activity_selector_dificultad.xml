@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectorDificultad"
+    android:background="@drawable/fondodificultad">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selecciona la dificultad"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textColor="#D50314"
+            android:fontFamily="@font/firstp"
+            android:layout_margin="100dp"
+            android:shadowColor="#000000"
+            android:shadowRadius="10"
+            android:shadowDx="20"
+            android:shadowDy="50"
+            />
+
+        <Button
+            android:id="@+id/btnFacil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Facil"
+            android:layout_gravity="center"
+            android:fontFamily="@font/firstp"
+            android:layout_margin="10dp"
+            />
+
+        <Button
+            android:id="@+id/btnMedio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="medio"
+            android:layout_gravity="center"
+            android:fontFamily="@font/firstp"
+            android:layout_margin="10dp"
+            />
+
+        <Button
+            android:id="@+id/btnDificil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dificil"
+            android:layout_gravity="center"
+            android:fontFamily="@font/firstp"
+            android:layout_margin="10dp"
+            />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
