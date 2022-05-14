@@ -1,1 +1,3 @@
-# Reto-5-Juego-Memory-Kotlin-El-se-or-de-los-anillos
+# Reto 5-Juego Memory Kotlin El señor de los anillos
+
+CODIGO EN RAMA MASTER.
