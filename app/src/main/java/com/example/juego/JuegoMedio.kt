@@ -15,8 +15,6 @@ import android.widget.TextView
 import java.util.*
 
 class JuegoMedio : AppCompatActivity() {
-    //   lateinit var binding: ActivityJuegoBinding
-//  lateinit var viewModel: ActivityJuegoBinding
 
 //region Variables
 // variables para los componentes de la vista
@@ -53,9 +51,8 @@ class JuegoMedio : AppCompatActivity() {
     var textoParejas: TextView? = null
     var puntuacion = 0
     var aciertos = 0
-    var movimientos= 0
+    var movimientos = 0
     var parejas = 12
-
 
 
     //imagenes
@@ -80,7 +77,7 @@ class JuegoMedio : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_juego_medio)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        musicNazgul = MediaPlayer.create(this,R.raw.nazgul)
+        musicNazgul = MediaPlayer.create(this, R.raw.nazgul)
         musicNazgul.start()
         init()
 
@@ -160,7 +157,7 @@ class JuegoMedio : AppCompatActivity() {
             // this loop will run until the value of i becomes 99
             while (i < 100) {
                 i += 1
-                Log.d("Hilo","{$i}")
+                Log.d("Hilo", "{$i}")
                 // Update the progress bar and display the current value
                 handler.post(Runnable {
                     progressBar!!.progress = i
@@ -168,7 +165,7 @@ class JuegoMedio : AppCompatActivity() {
                     txtView!!.text = i.toString() + "/" + progressBar!!.max
                 })
                 try {
-                    Thread.sleep(500)
+                    Thread.sleep(600)
                     // isActive=true
                 } catch (e: InterruptedException) {
                     e.printStackTrace()
@@ -177,24 +174,20 @@ class JuegoMedio : AppCompatActivity() {
 
             progressBar!!.visibility = View.INVISIBLE
 
-            if(i==100){
+            if (i == 100) {
                 musicNazgul.stop()
                 val intent = Intent(applicationContext, PantallaDerrota::class.java)
                 startActivity(intent)
                 finish()
-            }else{
+            } else {
                 musicNazgul.stop()
                 val intent = Intent(applicationContext, PantallaVictoria::class.java)
-                intent.putExtra("Score","Tu puntuación fue de: $puntuacion puntos.\n ¡¡Victoria!!")
+                intent.putExtra("Score", "Tu puntuación fue de: $puntuacion puntos.\n ¡¡Victoria!!")
                 startActivity(intent)
                 finish()
             }
 
-
-
-
         }).start()
-
 
     }
 
@@ -207,8 +200,8 @@ class JuegoMedio : AppCompatActivity() {
         movimientos = 0
         parejas = 12
         textoPuntuacion!!.setText("Puntuacion: $puntuacion")
-        textoMovimientos!!.setText(  "Numero de movimientos: $movimientos")
-        textoParejas!!.setText ("Número parejas restantes: $parejas")
+        textoMovimientos!!.setText("Numero de movimientos: $movimientos")
+        textoParejas!!.setText("Numero parejas restantes: $parejas")
     }
 
     private fun loadImages() {
@@ -225,8 +218,6 @@ class JuegoMedio : AppCompatActivity() {
             R.drawable.la9,
             R.drawable.la10,
             R.drawable.la11
-
-
         )
         fondo = R.drawable.fondo
     }
@@ -241,12 +232,10 @@ class JuegoMedio : AppCompatActivity() {
         return result
     }
 
-
-
     private fun check(i: Int, imgb: ImageButton?) {
         txtView = findViewById<TextView>(R.id.text_view)
-        textoMovimientos= findViewById<TextView>(R.id.texto_Movimientos)
-        textoParejas= findViewById<TextView>(R.id.texto_Parejas)
+        textoMovimientos = findViewById<TextView>(R.id.texto_Movimientos)
+        textoParejas = findViewById<TextView>(R.id.texto_Parejas)
         if (primero == null) {
             primero = imgb
             primero!!.scaleType = ImageView.ScaleType.CENTER_CROP
@@ -271,13 +260,9 @@ class JuegoMedio : AppCompatActivity() {
                 textoParejas!!.text = "Número parejas restantes: $parejas"
                 if (aciertos == imagenes.size) {
 
-                    this.i =150  // le damos a i un numero mayor a 100 para que el hilo se detenga al ganar
-                    txtView!!.text="¡¡Victoria!!"
-
-
-
-
-
+                    this.i =
+                        150  // le damos a i un numero mayor a 100 para que el hilo se detenga al ganar
+                    txtView!!.text = "¡¡Victoria!!"
                 }
             } else {
                 handler.postDelayed({
@@ -291,7 +276,7 @@ class JuegoMedio : AppCompatActivity() {
                     primero = null
                     puntuacion--
                     movimientos++
-                    if(puntuacion <0)puntuacion=0
+                    if (puntuacion < 0) puntuacion = 0
                     textoPuntuacion!!.text = "Puntuación: $puntuacion"
                     textoMovimientos!!.text = "Numero de movimientos: $movimientos"
                 }, 500)

@@ -15,20 +15,20 @@ class PantallaDerrota : AppCompatActivity() {
         setContentView(R.layout.activity_pantalla_derrota)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        val musicDefeat= MediaPlayer.create(this,R.raw.derrota)
-        musicDefeat.isLooping=true
+        val musicDefeat = MediaPlayer.create(this, R.raw.derrota)
+        musicDefeat.isLooping = true
         musicDefeat.start()
 
 
         botonReiniciar = findViewById<Button>(R.id.btnReinicio)
         botonReiniciar.setOnClickListener {
             musicDefeat.stop()
-            val intent = Intent(applicationContext, SelectorDificultad::class.java)
+            val intent = Intent(applicationContext, MenuPrincipal::class.java)
 
             startActivity(intent)
             finish()
         }
-        }
+    }
 
     override fun onBackPressed() {
 

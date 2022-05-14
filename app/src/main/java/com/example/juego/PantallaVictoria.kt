@@ -18,20 +18,20 @@ class PantallaVictoria : AppCompatActivity() {
         setContentView(R.layout.activity_pantalla_victoria)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        val musicVictory = MediaPlayer.create(this,R.raw.victory)
-        musicVictory.isLooping=true
+        val musicVictory = MediaPlayer.create(this, R.raw.victory)
+        musicVictory.isLooping = true
         musicVictory.start()
 
         val bundle = intent.extras
         val dato = bundle?.getString("Score")
 
-      //  Toast.makeText(this, dato, Toast.LENGTH_LONG).show()
+        //  Toast.makeText(this, dato, Toast.LENGTH_LONG).show()
         val envio = findViewById<TextView>(R.id.txtPuntos)
-        envio.text= dato.toString()
+        envio.text = dato.toString()
         botonReiniciar = findViewById<Button>(R.id.btnReinicio)
         botonReiniciar.setOnClickListener {
             musicVictory.stop()
-            val intent = Intent(applicationContext, SelectorDificultad::class.java)
+            val intent = Intent(applicationContext, MenuPrincipal::class.java)
 
             startActivity(intent)
 

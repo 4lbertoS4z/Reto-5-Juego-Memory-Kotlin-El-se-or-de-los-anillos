@@ -8,8 +8,8 @@ import android.widget.Button
 
 class SelectorDificultad : AppCompatActivity() {
     lateinit var btnFacil: Button
-    lateinit var btnMedio:Button
-    lateinit var btnDificil:Button
+    lateinit var btnMedio: Button
+    lateinit var btnDificil: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,7 @@ class SelectorDificultad : AppCompatActivity() {
             finish()
         }
 
-        btnMedio= findViewById<Button>(R.id.btnMedio)
+        btnMedio = findViewById<Button>(R.id.btnMedio)
 
         btnMedio.setOnClickListener {
 
@@ -47,6 +47,7 @@ class SelectorDificultad : AppCompatActivity() {
             finish()
         }
     }
+
     override fun onBackPressed() {
 
     }

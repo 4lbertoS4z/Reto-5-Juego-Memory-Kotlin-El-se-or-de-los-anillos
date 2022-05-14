@@ -31,8 +31,6 @@ import java.util.*
 
 class Juego : AppCompatActivity() {
 
-    //   lateinit var binding: ActivityJuegoBinding
-    //  lateinit var viewModel: ActivityJuegoBinding
 
     //region Variables
     // variables para los componentes de la vista
@@ -54,17 +52,14 @@ class Juego : AppCompatActivity() {
     lateinit var img14: ImageButton
     lateinit var img15: ImageButton
     var tablero = arrayOfNulls<ImageButton>(16)
-   lateinit var btnReinicio: Button
+    lateinit var btnReinicio: Button
     var textoPuntuacion: TextView? = null
     var textoMovimientos: TextView? = null
     var textoParejas: TextView? = null
     var puntuacion = 0
     var aciertos = 0
-    var movimientos= 0
+    var movimientos = 0
     var parejas = 8
-
-
-
 
     //imagenes
     lateinit var imagenes: IntArray
@@ -79,8 +74,8 @@ class Juego : AppCompatActivity() {
     val handler = Handler()
     private var progressBar: ProgressBar? = null
     private var i = 0
-     var txtView: TextView? = null
-    lateinit var musicNazgul:MediaPlayer
+    var txtView: TextView? = null
+    lateinit var musicNazgul: MediaPlayer
     //private val handler = Handler()
 
     //endregion Variables
@@ -89,10 +84,9 @@ class Juego : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_juego)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        musicNazgul = MediaPlayer.create(this,R.raw.nazgul)
+        musicNazgul = MediaPlayer.create(this, R.raw.nazgul)
         musicNazgul.start()
         init()
-
     }
 
     override fun onBackPressed() {
@@ -143,46 +137,42 @@ class Juego : AppCompatActivity() {
 
         i = progressBar!!.progress
 
-            Thread(Runnable {
-                Thread.sleep(2500)
-                // this loop will run until the value of i becomes 99
-                while (i < 100) {
-                    i += 1
-                    Log.d("Hilo","{$i}")
-                    // Update the progress bar and display the current value
-                    handler.post(Runnable {
-                        progressBar!!.progress = i
-                        // setting current progress to the textview
-                        txtView!!.text = i.toString() + "/" + progressBar!!.max
-                    })
-                    try {
-                        Thread.sleep(450)
-                        // isActive=true
-                    } catch (e: InterruptedException) {
-                        e.printStackTrace()
-                    }
+        Thread(Runnable {
+            Thread.sleep(2500)
+            // this loop will run until the value of i becomes 99
+            while (i < 100) {
+                i += 1
+                Log.d("Hilo", "{$i}")
+                // Update the progress bar and display the current value
+                handler.post(Runnable {
+                    progressBar!!.progress = i
+                    // setting current progress to the textview
+                    txtView!!.text = i.toString() + "/" + progressBar!!.max
+                })
+                try {
+                    Thread.sleep(600)
+
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
                 }
+            }
 
-                progressBar!!.visibility = View.INVISIBLE
+            progressBar!!.visibility = View.INVISIBLE
 
-                    if(i==100){
-                        musicNazgul.stop()
-                    val intent = Intent(applicationContext, PantallaDerrota::class.java)
-                    startActivity(intent)
-                    finish()
-                    }else{
-                        musicNazgul.stop()
-                        val intent = Intent(applicationContext, PantallaVictoria::class.java)
-                        intent.putExtra("Score","Tu puntuación fue de: $puntuacion puntos.\n ¡¡Victoria!!")
-                        startActivity(intent)
-                        finish()
-                    }
+            if (i == 100) {
+                musicNazgul.stop()
+                val intent = Intent(applicationContext, PantallaDerrota::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                musicNazgul.stop()
+                val intent = Intent(applicationContext, PantallaVictoria::class.java)
+                intent.putExtra("Score", "Tu puntuación fue de: $puntuacion puntos.\n ¡¡Victoria!!")
+                startActivity(intent)
+                finish()
+            }
 
-
-
-
-            }).start()
-
+        }).start()
 
     }
 
@@ -194,9 +184,9 @@ class Juego : AppCompatActivity() {
         aciertos = 0
         movimientos = 0
         parejas = 8
-          textoPuntuacion!!.setText("Puntuacion: $puntuacion")
-        textoMovimientos!!.setText(  "Numero de movimientos: $movimientos")
-        textoParejas!!.setText ("Número parejas restantes: $parejas")
+        textoPuntuacion!!.setText("Puntuacion: $puntuacion")
+        textoMovimientos!!.setText("Numero de movimientos: $movimientos")
+        textoParejas!!.setText("Número parejas restantes: $parejas")
     }
 
     private fun loadImages() {
@@ -223,12 +213,10 @@ class Juego : AppCompatActivity() {
         return result
     }
 
-
-
     private fun check(i: Int, imgb: ImageButton?) {
         txtView = findViewById<TextView>(R.id.text_view)
-        textoMovimientos= findViewById<TextView>(R.id.texto_Movimientos)
-        textoParejas= findViewById<TextView>(R.id.texto_Parejas)
+        textoMovimientos = findViewById<TextView>(R.id.texto_Movimientos)
+        textoParejas = findViewById<TextView>(R.id.texto_Parejas)
         if (primero == null) {
             primero = imgb
             primero!!.scaleType = ImageView.ScaleType.CENTER_CROP
@@ -253,12 +241,9 @@ class Juego : AppCompatActivity() {
                 textoParejas!!.text = "Número parejas restantes: $parejas"
                 if (aciertos == imagenes.size) {
 
-                    this.i =150  // le damos a i un numero mayor a 100 para que el hilo se detenga al ganar
-                        txtView!!.text="¡¡Victoria!!"
-
-
-
-
+                    this.i =
+                        150  // le damos a i un numero mayor a 100 para que el hilo se detenga al ganar
+                    txtView!!.text = "¡¡Victoria!!"
 
                 }
             } else {
@@ -271,10 +256,10 @@ class Juego : AppCompatActivity() {
                     imgb.isEnabled = true
                     bloqueo = false
                     primero = null
-                   puntuacion--
+                    puntuacion--
                     movimientos++
 
-                    if(puntuacion <0)puntuacion=0
+                    if (puntuacion < 0) puntuacion = 0
                     textoPuntuacion!!.text = "Puntuación: $puntuacion"
                     textoMovimientos!!.text = "Numero de movimientos: $movimientos"
                 }, 500)
